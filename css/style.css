@@ -215,3 +215,7 @@ body{
 
 /* /right */
 /* / main */
+
+.clicked{
+  background-color: #e9ebeb;
+}

@@ -168,9 +168,19 @@ const app = new Vue ({
       }
     ],
 
-    
+    courrentUser: 0
 
     
+  },
+
+  methods:{
+
+    showUser(index){
+
+        this.courrentUser = index
+
+    }
+
   }
 
 })

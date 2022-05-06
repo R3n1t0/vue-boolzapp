@@ -54,6 +54,7 @@
 
           <div 
             v-for="(contact,index) in contacts"
+            @click="showUser(index)"
             class="contatto">
             <img :src="`./img/avatar${contact.avatar}.jpg`" alt="">
             <div class="info">
@@ -70,9 +71,9 @@
         <div class="top-right">
   
           <div class="user">
-            <img src="./img/avatar_1.jpg" alt="">
+            <img src="`./img/avatar${contacts[courrentUser].avatar}.jpg`" alt="">
             <div class="info">
-              <span>Name</span>
+              <span>{{contacts[courrentUser].name}}</span>
               <p>Ultimo accesso oggi alle 12:00</p> 
             </div>
             
