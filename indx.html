@@ -46,16 +46,18 @@
         </div>
 
         <div class="search">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" placeholder="          Cerca o inizia una nuova chat">
+          <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
+          <input type="text" placeholder=" Cerca o inizia una nuova chat">
         </div>
 
         <div class="contatti">
 
-          <div class="contatto">
-            <img src="./img/avatar_1.jpg" alt="">
+          <div 
+            v-for="(contact,index) in contacts"
+            class="contatto">
+            <img :src="`./img/avatar${contact.avatar}.jpg`" alt="">
             <div class="info">
-              <span>Name</span>
+              <span>{{contact.name}}</span>
               <p>Ultimo messaggio inviato</p> 
             </div>
           </div>

@@ -112,22 +112,24 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+}
+
+.search label{
+  background-color: white;
+  border-radius: 2px;
 }
 
 .search input{
-  width: 95%;
+  width: 90%;
   height: 30px;
   border: none;
-  border-radius: 5px;
+  border-radius: 2px;
 }
 
 .search i{
-  position: absolute;
-  left: 5px;
-  top: 7px;
   font-size: 10px;
-  margin-left: 20px;
+  margin-left: 15px;
+  cursor: pointer;
 }
 
 .contatti{
