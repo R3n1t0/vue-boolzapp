@@ -10,18 +10,23 @@ img{
   width: 35px;
   height: 35px;
   border-radius: 35px;
+  margin: 5px;
 }
 
 i{
   color: #b1b1b1;
-  margin: 7px;
+  margin: 10px;
 }
 
 p{
   color: #b1b1b1;
   font-size: 12px;
-  margin-left: 40px;
   display: block;
+}
+
+.user{
+  display: flex;
+ align-items: center;
 }
 
 body{
@@ -47,19 +52,15 @@ body{
 .container{
   margin: 0 auto;
   display: flex;
-  width: 70%;
-  height: 90vh;
+  width: 80%;
+  height: 95vh;
   padding-top: 20px;
 }
 
+/* left */
+
 .main-left{
   width: 40%;
-  height: 100%;
-  border-right: 1px solid lightgray;
-}
-
-.main-right{
-  width: 60%;
   height: 100%;
 }
 
@@ -68,17 +69,40 @@ body{
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 50px;
+  height: 60px;
   background-color: #eaeaea;
   padding: 0px 10px ;
 }
 
 .notifiche{
   width: 100%;
-  height: 60px;
+  height: 70px;
   background-color: #8edafc;
   display: flex;
   align-items: center;
+}
+
+.notifiche i{
+  background-color: #f2fbff;
+  color: #8edafc;
+  width: 30px;
+  padding: 6px;
+  height: 30px;
+  border-radius: 20px;
+}
+
+.attiva{
+  display: flex;
+  flex-direction: column;
+}
+
+.attiva a{
+  font-size: 10px;
+  color: gray;
+}
+
+.attiva p{
+  color: black;
 }
 
 .search{
@@ -88,24 +112,52 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .search input{
-  width: 90%;
+  width: 95%;
   height: 30px;
   border: none;
   border-radius: 5px;
 }
 
 .search i{
+  position: absolute;
+  left: 5px;
+  top: 7px;
   font-size: 10px;
   margin-left: 20px;
+}
+
+.contatti{
+  width: 100%;  
+  height: calc(100% - 170px);
+  background-color: white;
+ 
+}
+
+.contatti .contatto{
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+
+/* / left */
+
+/* right */
+.main-right{
+  width: 60%;
+  height: 100%;
 }
 
 .message-area{
   background-image: url(/img/mine.jpg);
   width: 100%;
-  height: calc(100% - 50px);
+  height: calc(100% - 110px);
 }
 
 .message-input{
@@ -127,4 +179,6 @@ body{
 .message-input i{
   padding: 0 20px;
 }
+
+/* /right */
 /* / main */
