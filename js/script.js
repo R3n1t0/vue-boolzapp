@@ -175,7 +175,7 @@ const app = new Vue ({
       message: 0,
 
 
-      newMessage: " "
+      newMessage: ""
   
       
     },
@@ -207,7 +207,9 @@ const app = new Vue ({
             status: 'sent' 
         }
 
-        this.contacts[courrentUser].messages.push(newMessageToPush)
+        this.contacts[courrentUser].messages.push(newMessageToPush);
+
+        this.newMessage = "";
 
       }
   

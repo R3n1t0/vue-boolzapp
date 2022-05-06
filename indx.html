@@ -91,7 +91,8 @@
 
           <div 
               class="message"
-              v-for="message in contacts[courrentUser].messages">
+              v-for="message in contacts[courrentUser].messages"
+              :class="message.status">
 
             <div class="message-text">{{message.message}}</div>
             <div class="message-time">{{message.date}}</div>
