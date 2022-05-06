@@ -54,7 +54,7 @@
 
           <div 
             v-for="(contact,index) in contacts"
-            @click="showUser(index), showMessage()"
+            @click="showUser(index) "
             class="contatto">
             <img :src="`./img/avatar${contact.avatar}.jpg`" alt="">
             <div class="info">
@@ -94,14 +94,18 @@
               v-for="message in contacts[courrentUser].messages">
 
             <div class="message-text">{{message.message}}</div>
-            <div class="message-time">00/00/000 00:00:00</div>
+            <div class="message-time">{{message.date}}</div>
           </div>
 
         </div>
 
         <div class="message-input">
           <i class="fa-regular fa-face-smile"></i>
-          <input type="text" placeholder="  Scrivi messaggio">
+          <input
+            v-model.trim="newMessage" 
+            @keyup.enter="addNewMessage"
+            type="text" 
+            placeholder="  Scrivi messaggio">
           <i class="fa-solid fa-microphone"></i>
         </div>
 
