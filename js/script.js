@@ -168,7 +168,11 @@ const app = new Vue ({
       }
     ],
 
-    courrentUser: 0
+
+    courrentUser: 0,
+
+
+    message: 0
 
     
   },
@@ -179,8 +183,16 @@ const app = new Vue ({
 
         this.courrentUser = index
 
+    },
+
+
+    showMessage(){
+
+        this.message = contacts[courrentUser].messages[message]
+  
     }
 
+    
   }
 
 })

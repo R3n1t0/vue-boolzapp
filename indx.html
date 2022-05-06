@@ -25,7 +25,7 @@
           <div class="user">
             <img src="/img/avatar_io.jpg" alt="">
             <div class="info">
-              <span>Name</span>
+              <span>Sofia</span>
             </div> 
           </div>
   
@@ -54,7 +54,7 @@
 
           <div 
             v-for="(contact,index) in contacts"
-            @click="showUser(index)"
+            @click="showUser(index), showMessage()"
             class="contatto">
             <img :src="`./img/avatar${contact.avatar}.jpg`" alt="">
             <div class="info">
@@ -71,7 +71,7 @@
         <div class="top-right">
   
           <div class="user">
-            <img src="`./img/avatar${contacts[courrentUser].avatar}.jpg`" alt="">
+            <img :src="`./img/avatar${contacts[courrentUser].avatar}.jpg`" alt="">
             <div class="info">
               <span>{{contacts[courrentUser].name}}</span>
               <p>Ultimo accesso oggi alle 12:00</p> 
@@ -88,15 +88,15 @@
         </div>
   
         <div class="message-area">
-          <div class="message sent">
-            <div class="message-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque, repellendus!</div>
+
+          <div 
+              class="message"
+              v-for="message in contacts[courrentUser].messages">
+
+            <div class="message-text">{{message.message}}</div>
             <div class="message-time">00/00/000 00:00:00</div>
           </div>
 
-          <div class="message received">
-            <div class="message-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque, repellendus!</div>
-            <div class="message-time">00/00/000 00:00:00</div>
-          </div>
         </div>
 
         <div class="message-input">
