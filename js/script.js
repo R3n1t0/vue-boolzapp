@@ -4,7 +4,7 @@ const app = new Vue ({
   
     data: {
   
-      contacts: [
+        contacts: [
         {
             name: 'Michele',
             avatar: '_1',
@@ -166,53 +166,84 @@ const app = new Vue ({
                 }
             ],
         }
-      ],
+        ],
   
-  
-      courrentUser: 0,
-  
-  
-      message: 0,
+        courrentUser: 0,
+   
+        message: 0,
 
+        newMessage: "",
 
-      newMessage: ""
+        answeredMessage: "ok"
   
       
     },
   
     methods:{
   
-      showUser(index){
+        showUser(index){
   
-          this.courrentUser = index
+            this.courrentUser = index
   
-      },
+        },
 
-      addNewMessage(){
 
-        const currentDate = new Date();
-        const cSec = currentDate.getSeconds();
-        const cMin = currentDate.getMinutes();
-        const cHou = currentDate.getHours;
-        const cDay = currentDate.getDate();
-        const cMonth = currentDate.getMonth() + 1;
-        const cYear = currentDate.getFullYear();
+        addNewMessage(){
 
-        const currentDay = `${cDay}/${cMonth}/${cYear}`
-        const currentMoment = `${cHou}:${cMin}:${cSec}`
+            const currentDate = new Date();
+            const cSec = currentDate.getSeconds();
+            const cMin = currentDate.getMinutes();
+            const cHou = currentDate.getHours();
+            const cDay = currentDate.getDate();
+            const cMonth = currentDate.getMonth() + 1;
+            const cYear = currentDate.getFullYear();
 
-        const newMessageToPush = {
+            const currentDay = `${cDay}/${cMonth}/${cYear}`
+            const currentMoment = `${cHou}:${cMin}:${cSec}`
+
+            const newMessageToPush = {
             date: `${currentDay} ${currentMoment}`,
-            message: newMessage,
+            message: this.newMessage,
             status: 'sent' 
-        }
+            }
+        
+            this.contacts[this.courrentUser].messages.push(newMessageToPush);
 
-        this.contacts[courrentUser].messages.push(newMessageToPush);
+            this.newMessage = "";
 
-        this.newMessage = "";
 
-      }
-  
+            setTimeout();
+
+        },
+
+
+        addNewAnswerredMessage(){
+
+            const answeredMessageToPush = {
+                date: `${currentDay} ${currentMoment}`,
+                message: this.answeredMessage,
+                status: 'received' 
+            }
+
+            this.contacts[this.courrentUser].messages.push(answeredMessageToPush);
+
+        },
+
+        getLastMessage(index){
+            const contact = this.contacts[index];
+            const messages = contact.messages;
+            const lastMessage = messages[messages.length - 1];
+            return lastMessage.message;
+        },
+
+        getLastDate(index){
+            const contact = this.contacts[index];
+            const messages = contact.messages;
+            const lastMessage = messages[messages.length - 1];
+            return lastMessage.date;
+        },
+
+
       
     }
   

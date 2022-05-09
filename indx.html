@@ -54,12 +54,13 @@
 
           <div 
             v-for="(contact,index) in contacts"
-            @click="showUser(index) "
-            class="contatto">
+            @click="showUser(index)"
+            class="contatto"
+            :class="{'clicked': courrentUser === index}">
             <img :src="`./img/avatar${contact.avatar}.jpg`" alt="">
             <div class="info">
               <span>{{contact.name}}</span>
-              <p>Ultimo messaggio inviato</p> 
+              <p>{{getLastMessage(index)}}</p> 
             </div>
           </div>
  
