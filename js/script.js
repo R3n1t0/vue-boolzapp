@@ -183,7 +183,7 @@ const app = new Vue ({
   
         showUser(index){
   
-            this.courrentUser = index
+            this.courrentUser = index;
   
         },
 
@@ -212,7 +212,9 @@ const app = new Vue ({
             this.newMessage = "";
 
 
-            setTimeout();
+            setTimeout(() =>{
+                this.addNewAnswerredMessage();
+            },2000);
 
         },
 
@@ -225,7 +227,7 @@ const app = new Vue ({
                 status: 'received' 
             }
 
-            this.contacts[this.courrentUser].messages.push(answeredMessageToPush);
+           this.contacts[this.courrentUser].messages.push(answeredMessageToPush);
 
         },
 

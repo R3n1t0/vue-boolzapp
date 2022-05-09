@@ -149,6 +149,7 @@ body{
   border-bottom: 1px solid #f1f1f1;
 }
 
+
 .contatti .contatto:hover{
   background-color: #f2f4f3;
 }
@@ -227,3 +228,4 @@ body{
 .clicked{
   background-color: #e8e8e8;
 }
+
