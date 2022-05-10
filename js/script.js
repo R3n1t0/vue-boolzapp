@@ -174,10 +174,15 @@ const app = new Vue ({
 
         newMessage: "",
 
-        answeredMessage: "ok"
+        answeredMessage: "ok",
+
+        now: dayjs().format("DD/MM/YY HH:mm:ss"),
+
+        user: ""
   
       
     },
+
   
     methods:{
   
@@ -187,22 +192,10 @@ const app = new Vue ({
   
         },
 
-
         addNewMessage(){
 
-            const currentDate = new Date();
-            const cSec = currentDate.getSeconds();
-            const cMin = currentDate.getMinutes();
-            const cHou = currentDate.getHours();
-            const cDay = currentDate.getDate();
-            const cMonth = currentDate.getMonth() + 1;
-            const cYear = currentDate.getFullYear();
-
-            const currentDay = `${cDay}/${cMonth}/${cYear}`
-            const currentMoment = `${cHou}:${cMin}:${cSec}`
-
             const newMessageToPush = {
-            date: `${currentDay} ${currentMoment}`,
+            date: this.now,
             message: this.newMessage,
             status: 'sent' 
             }
@@ -213,16 +206,17 @@ const app = new Vue ({
 
 
             setTimeout(() =>{
+
                 this.addNewAnswerredMessage();
+
             },2000);
 
         },
 
-
         addNewAnswerredMessage(){
 
             const answeredMessageToPush = {
-                date: `${currentDay} ${currentMoment}`,
+                date: this.now,
                 message: this.answeredMessage,
                 status: 'received' 
             }
@@ -232,21 +226,39 @@ const app = new Vue ({
         },
 
         getLastMessage(index){
+
             const contact = this.contacts[index];
             const messages = contact.messages;
             const lastMessage = messages[messages.length - 1];
             return lastMessage.message;
+
         },
 
         getLastDate(index){
+
             const contact = this.contacts[index];
             const messages = contact.messages;
             const lastMessage = messages[messages.length - 1];
             return lastMessage.date;
+
         },
 
+        search(){
 
-      
+            this.contacts.forEach(contact => {
+
+                if(contact.name.toLowerCase().includes(this.user.toLowerCase())){
+
+                    contact.visible = true;
+
+                }else{
+                    contact.visible = false;
+                }
+            });
+
+
+        }
+ 
     }
   
   })

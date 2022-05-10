@@ -9,6 +9,7 @@
 
   <link rel="stylesheet" href="./css/style.css">
 
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.2/dayjs.min.js"></script>
   
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
@@ -47,14 +48,18 @@
 
         <div class="search">
           <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
-          <input type="text" placeholder=" Cerca o inizia una nuova chat">
+          <input 
+            v-model.trim="user"
+            @keyup.enter="search()"
+            type="text" placeholder=" Cerca o inizia una nuova chat">
         </div>
 
         <div class="contatti">
 
           <div 
             v-for="(contact,index) in contacts"
-            @click="showUser(index) "
+            @click="showUser(index)"
+            v-if="contact.visible === true"
             class="contatto"
             :class="{'clicked' : courrentUser === index}">
             <img :src="`./img/avatar${contact.avatar}.jpg`" alt="">
