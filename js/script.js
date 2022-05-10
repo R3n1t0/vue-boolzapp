@@ -185,13 +185,15 @@ const app = new Vue ({
 
   
     methods:{
-  
+        
+        /* Funzione per mostrare il contatto attivo */
         showUser(index){
   
             this.courrentUser = index;
   
         },
 
+        /* Funzione per aggiungere un nuovo messaggio e la risposta random */
         addNewMessage(){
 
             const newMessageToPush = {
@@ -204,7 +206,6 @@ const app = new Vue ({
 
             this.newMessage = "";
 
-
             setTimeout(() =>{
 
                 this.addNewAnswerredMessage();
@@ -213,6 +214,7 @@ const app = new Vue ({
 
         },
 
+        /* Funzione per la risposta random */
         addNewAnswerredMessage(){
 
             const answeredMessageToPush = {
@@ -225,6 +227,7 @@ const app = new Vue ({
 
         },
 
+        /* Funzione per la prendere l'ultimo messaggio */
         getLastMessage(index){
 
             const contact = this.contacts[index];
@@ -234,6 +237,7 @@ const app = new Vue ({
 
         },
 
+        /* Funzione per la prendere l'ultima data */
         getLastDate(index){
 
             const contact = this.contacts[index];
@@ -243,6 +247,7 @@ const app = new Vue ({
 
         },
 
+        /* Funzione per cercare tra i contatti */
         search(){
 
             this.contacts.forEach(contact => {
@@ -252,8 +257,10 @@ const app = new Vue ({
                     contact.visible = true;
 
                 }else{
+
                     contact.visible = false;
                 }
+
             });
 
 
